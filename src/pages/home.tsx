@@ -4,253 +4,229 @@ import { getLocalBusinessSchema } from '../utils/schema'
 
 export const homePage = (c: Context) => {
   const schema = getLocalBusinessSchema()
-  
+
   const content = `
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <!-- Video Background -->
-      <video autoplay muted loop playsinline class="hero-video">
-        <source src="/static/videos/lawn-mowing.mp4" type="video/mp4">
-        <!-- Fallback image if video doesn't load -->
-        <img src="/static/images/hero-bg.jpg" alt="Lawn Care Service">
-      </video>
-      
+    <section class="hero">
+      <!-- Optimized Hero Background -->
+      <img src="/static/images/hero-bg.jpg" 
+           alt="Professional Lawn Care Service" 
+           class="hero-bg"
+           width="1920" 
+           height="1080"
+           loading="eager"
+           fetchpriority="high">
+
       <div class="hero-overlay"></div>
-      
-      <div class="relative z-10 text-center px-4">
-        <img src="/static/images/logo-large.png" alt="Southern Buck Lawn" class="h-48 md:h-64 mx-auto mb-8 animate-fade-in">
-        
-        <h1 class="text-5xl md:text-7xl font-bebas text-white mb-4">
+
+      <div class="hero-content">
+        <img src="/static/images/logo-large.png" 
+             alt="Southern Buck Lawn Logo" 
+             class="hero-logo"
+             width="400" 
+             height="300"
+             loading="eager"
+             fetchpriority="high">
+
+        <h1 class="hero-title">
           Professional Lawn Care & Landscaping
         </h1>
-        
-        <p class="text-xl md:text-2xl text-gray-300 mb-8">
+
+        <p class="hero-subtitle">
           Licensed & Insured | Free Estimates | Walker, LA
         </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://forms.gle/Mut7H9YsjZDf6jUn6" target="_blank" class="bg-lime-green text-dark-gray px-8 py-4 rounded-full text-xl font-bold hover:bg-green-400 transition-all transform hover:scale-105">
-            <i class="fas fa-clipboard-list mr-2"></i>Get Free Quote
+
+        <div class="hero-buttons">
+          <a href="https://forms.gle/Mut7H9YsjZDf6jUn6" target="_blank" class="hero-btn btn-primary">
+            <i class="fas fa-clipboard-list"></i>Get Free Quote
           </a>
-          <a href="tel:225-369-4434" class="bg-transparent border-2 border-lime-green text-lime-green px-8 py-4 rounded-full text-xl font-bold hover:bg-lime-green hover:text-dark-gray transition-all transform hover:scale-105">
-            <i class="fas fa-phone mr-2"></i>Call 225-369-4434
-          </a>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <i class="fas fa-chevron-down text-3xl text-lime-green"></i>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Services Section -->
-    <section class="py-20 bg-medium-gray">
-      <div class="container mx-auto px-4">
-        <h2 class="text-5xl md:text-6xl font-bebas text-center mb-4 scroll-animate">
-          <span class="gradient-text">Our Services</span>
-        </h2>
-        <p class="text-xl text-center text-gray-400 mb-12 scroll-animate">
-          Comprehensive Lawn Care & Landscaping Solutions
-        </p>
-        
-        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-          ${getServicesHTML()}
-        </div>
-        
-        <div class="text-center mt-12">
-          <a href="/services" class="bg-lime-green text-dark-gray px-8 py-3 rounded-full text-lg font-bold hover:bg-green-400 transition-all inline-block">
-            View All Services <i class="fas fa-arrow-right ml-2"></i>
+          <a href="tel:225-369-4434" class="hero-btn btn-secondary">
+            <i class="fas fa-phone"></i>Call 225-369-4434
           </a>
         </div>
       </div>
     </section>
-    
+
     <!-- Meet Shane Section -->
-    <section class="py-20 bg-medium-gray">
-      <div class="container mx-auto px-4">
-        <h2 class="text-5xl md:text-6xl font-bebas text-center mb-12 scroll-animate">
+    <section class="section-py bg-medium">
+      <div class="container">
+        <h2 style="font-size:3rem;text-align:center;margin-bottom:3rem;font-family:'Bebas Neue',cursive">
           Meet <span class="gradient-text">Shane Dantone</span>
         </h2>
-        
-        <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <div class="scroll-animate">
-            <img src="/static/images/team-shane.jpg" alt="Shane Dantone - Owner of Southern Buck Lawn" class="rounded-lg shadow-2xl mx-auto lg:mx-0 max-w-sm">
+
+        <div style="display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;max-width:1200px;margin:0 auto">
+          <div style="grid-column:1;text-align:center">
+            <img src="/static/images/team-shane.jpg" 
+                 alt="Shane Dantone - Owner of Southern Buck Lawn" 
+                 style="border-radius:0.5rem;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);margin:0 auto;max-width:400px;width:100%;height:auto"
+                 width="400" 
+                 height="400"
+                 loading="lazy">
           </div>
-          
-          <div class="scroll-animate">
-            <h3 class="text-3xl font-bebas text-lime-green mb-4">Owner & Operator</h3>
-            <p class="text-gray-300 text-lg mb-4">
+
+          <div style="grid-column:1">
+            <h3 style="font-size:2rem;color:#7CFC00;margin-bottom:1rem;font-family:'Bebas Neue',cursive">Owner & Operator</h3>
+            <p style="color:#d1d5db;font-size:1.125rem;margin-bottom:1rem;line-height:1.7">
               Shane Dantone is a 35-year-old former industrial electrician with 13+ years of hands-on experience. After years in the electrical field, Shane followed his passion for lawn care and landscaping, investing everything into Southern Buck Lawn.
             </p>
-            <p class="text-gray-300 text-lg mb-4">
+            <p style="color:#d1d5db;font-size:1.125rem;margin-bottom:1rem;line-height:1.7">
               "I treat every client's yard like it's my own," Shane says. This personal approach, combined with all-new professional equipment, sets Southern Buck Lawn apart from the competition.
             </p>
-            <p class="text-gray-300 text-lg mb-6">
+            <p style="color:#d1d5db;font-size:1.125rem;margin-bottom:1.5rem;line-height:1.7">
               Based right here in Walker, LA on Brett Dr., Shane personally oversees every project to ensure the highest quality results for your property.
             </p>
-            <a href="tel:225-369-4434" class="bg-lime-green text-dark-gray px-6 py-3 rounded-full font-bold hover:bg-green-400 transition-all inline-block">
-              <i class="fas fa-phone mr-2"></i>Call Shane Today
+            <a href="tel:225-369-4434" style="background:#7CFC00;color:#1a1a1a;padding:0.75rem 1.5rem;border-radius:9999px;font-weight:bold;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s ease">
+              <i class="fas fa-phone"></i>Call Shane Today
             </a>
           </div>
         </div>
       </div>
     </section>
-    
+
+    <!-- Services Section -->
+    <section class="section-py bg-dark">
+      <div class="container">
+        <h2 style="font-size:3rem;text-align:center;margin-bottom:1rem;font-family:'Bebas Neue',cursive">
+          <span class="gradient-text">Our Services</span>
+        </h2>
+        <p style="font-size:1.25rem;text-align:center;color:#9CA3AF;margin-bottom:3rem">
+          Comprehensive Lawn Care & Landscaping Solutions
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem">
+          ${getServicesHTML()}
+        </div>
+
+        <div style="text-align:center;margin-top:3rem">
+          <a href="/services" style="background:#7CFC00;color:#1a1a1a;padding:0.75rem 2rem;border-radius:9999px;font-size:1.125rem;font-weight:bold;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s ease">
+            View All Services <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Why Choose Us Section -->
-    <section class="py-20 bg-dark-gray">
-      <div class="container mx-auto px-4">
-        <h2 class="text-5xl md:text-6xl font-bebas text-center mb-12 scroll-animate">
+    <section class="section-py bg-medium">
+      <div class="container">
+        <h2 style="font-size:3rem;text-align:center;margin-bottom:3rem;font-family:'Bebas Neue',cursive">
           Why Choose <span class="gradient-text">Southern Buck Lawn</span>?
         </h2>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-medium-gray p-8 rounded-lg scroll-animate">
-            <i class="fas fa-user-tie text-4xl text-lime-green mb-4"></i>
-            <h3 class="text-2xl font-bebas mb-3">Owner-Operated</h3>
-            <p class="text-gray-400">Shane Dantone personally oversees every project, bringing 13+ years of professional experience and treating your lawn as his own.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem">
+          <div style="background:#2a2a2a;padding:2rem;border-radius:0.5rem;transition:all 0.3s ease">
+            <i class="fas fa-user-tie" style="font-size:2.5rem;color:#7CFC00;margin-bottom:1rem;display:block"></i>
+            <h3 style="font-size:1.5rem;margin-bottom:0.75rem;font-family:'Bebas Neue',cursive">Owner-Operated</h3>
+            <p style="color:#9CA3AF">Shane Dantone personally oversees every project, bringing 13+ years of professional experience and treating your lawn as his own.</p>
           </div>
-          
-          <div class="bg-medium-gray p-8 rounded-lg scroll-animate">
-            <i class="fas fa-tools text-4xl text-lime-green mb-4"></i>
-            <h3 class="text-2xl font-bebas mb-3">All New Equipment</h3>
-            <p class="text-gray-400">We've invested in brand new, professional-grade equipment to deliver the highest quality results for your property.</p>
+
+          <div style="background:#2a2a2a;padding:2rem;border-radius:0.5rem;transition:all 0.3s ease">
+            <i class="fas fa-tools" style="font-size:2.5rem;color:#7CFC00;margin-bottom:1rem;display:block"></i>
+            <h3 style="font-size:1.5rem;margin-bottom:0.75rem;font-family:'Bebas Neue',cursive">All New Equipment</h3>
+            <p style="color:#9CA3AF">We've invested in brand new, professional-grade equipment to deliver the highest quality results for your property.</p>
           </div>
-          
-          <div class="bg-medium-gray p-8 rounded-lg scroll-animate">
-            <i class="fas fa-shield-alt text-4xl text-lime-green mb-4"></i>
-            <h3 class="text-2xl font-bebas mb-3">Licensed & Insured</h3>
-            <p class="text-gray-400">Fully licensed and insured for your peace of mind. We stand behind our work with complete professionalism.</p>
+
+          <div style="background:#2a2a2a;padding:2rem;border-radius:0.5rem;transition:all 0.3s ease">
+            <i class="fas fa-shield-alt" style="font-size:2.5rem;color:#7CFC00;margin-bottom:1rem;display:block"></i>
+            <h3 style="font-size:1.5rem;margin-bottom:0.75rem;font-family:'Bebas Neue',cursive">Licensed & Insured</h3>
+            <p style="color:#9CA3AF">Fully licensed and insured for your peace of mind. We stand behind our work with complete professionalism.</p>
           </div>
-          
-          <div class="bg-medium-gray p-8 rounded-lg scroll-animate">
-            <i class="fas fa-heart text-4xl text-lime-green mb-4"></i>
-            <h3 class="text-2xl font-bebas mb-3">Passion-Driven</h3>
-            <p class="text-gray-400">This isn't just a business—it's our passion. We take pride in every cut, every trim, and every landscape we create.</p>
+
+          <div style="background:#2a2a2a;padding:2rem;border-radius:0.5rem;transition:all 0.3s ease">
+            <i class="fas fa-heart" style="font-size:2.5rem;color:#7CFC00;margin-bottom:1rem;display:block"></i>
+            <h3 style="font-size:1.5rem;margin-bottom:0.75rem;font-family:'Bebas Neue',cursive">Passion-Driven</h3>
+            <p style="color:#9CA3AF">This isn't just a business—it's our passion. We take pride in every cut, every trim, and every landscape we create.</p>
           </div>
-          
-          <div class="bg-medium-gray p-8 rounded-lg scroll-animate">
-            <i class="fas fa-map-marked-alt text-4xl text-lime-green mb-4"></i>
-            <h3 class="text-2xl font-bebas mb-3">Local Expertise</h3>
-            <p class="text-gray-400">Based in Walker, LA, we understand the unique lawn care needs of our Louisiana climate and soil conditions.</p>
+
+          <div style="background:#2a2a2a;padding:2rem;border-radius:0.5rem;transition:all 0.3s ease">
+            <i class="fas fa-map-marked-alt" style="font-size:2.5rem;color:#7CFC00;margin-bottom:1rem;display:block"></i>
+            <h3 style="font-size:1.5rem;margin-bottom:0.75rem;font-family:'Bebas Neue',cursive">Local Expertise</h3>
+            <p style="color:#9CA3AF">Based in Walker, LA, we understand the unique lawn care needs of our Louisiana climate and soil conditions.</p>
           </div>
-          
-          <div class="bg-medium-gray p-8 rounded-lg scroll-animate">
-            <i class="fas fa-dollar-sign text-4xl text-lime-green mb-4"></i>
-            <h3 class="text-2xl font-bebas mb-3">Free Estimates</h3>
-            <p class="text-gray-400">Get a detailed, no-obligation quote for your project. We believe in transparent, fair pricing for all our services.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-medium-gray">
-      <div class="container mx-auto px-4">
-        <h2 class="text-5xl md:text-6xl font-bebas text-center mb-12 scroll-animate">
-          What Our <span class="gradient-text">Customers Say</span>
-        </h2>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-dark-gray p-8 rounded-lg scroll-animate">
-            <div class="flex mb-4">
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-            </div>
-            <p class="text-gray-300 mb-4">"Shane and his team transformed our yard! Professional, punctual, and the attention to detail is outstanding. Highly recommend Southern Buck Lawn!"</p>
-            <p class="text-lime-green font-bold">- Sarah M., Walker</p>
-          </div>
-          
-          <div class="bg-dark-gray p-8 rounded-lg scroll-animate">
-            <div class="flex mb-4">
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-            </div>
-            <p class="text-gray-300 mb-4">"Best lawn service in the area! They installed our new landscape design and it looks amazing. Fair pricing and excellent work."</p>
-            <p class="text-lime-green font-bold">- Mike T., Denham Springs</p>
-          </div>
-          
-          <div class="bg-dark-gray p-8 rounded-lg scroll-animate">
-            <div class="flex mb-4">
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-              <i class="fas fa-star text-lime-green"></i>
-            </div>
-            <p class="text-gray-300 mb-4">"Reliable weekly mowing service. Shane treats our lawn like it's his own. You can tell he takes pride in his work!"</p>
-            <p class="text-lime-green font-bold">- Jennifer R., Port Vincent</p>
+
+          <div style="background:#2a2a2a;padding:2rem;border-radius:0.5rem;transition:all 0.3s ease">
+            <i class="fas fa-dollar-sign" style="font-size:2.5rem;color:#7CFC00;margin-bottom:1rem;display:block"></i>
+            <h3 style="font-size:1.5rem;margin-bottom:0.75rem;font-family:'Bebas Neue',cursive">Free Estimates</h3>
+            <p style="color:#9CA3AF">Get a detailed, no-obligation quote for your project. We believe in transparent, fair pricing for all our services.</p>
           </div>
         </div>
       </div>
     </section>
-    
+
     <!-- Portfolio Section -->
-    <section class="py-20 bg-dark-gray">
-      <div class="container mx-auto px-4">
-        <h2 class="text-5xl md:text-6xl font-bebas text-center mb-12 scroll-animate">
+    <section class="section-py bg-dark">
+      <div class="container">
+        <h2 style="font-size:3rem;text-align:center;margin-bottom:3rem;font-family:'Bebas Neue',cursive">
           Our <span class="gradient-text">Recent Work</span>
         </h2>
-        
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="relative group overflow-hidden rounded-lg scroll-animate">
-            <img src="/static/images/portfolio/lawn-2.jpg" alt="Lawn Transformation Before and After" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-              <p class="text-white font-bold">Complete Lawn Transformation</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:1.5rem">
+          <div style="position:relative;overflow:hidden;border-radius:0.5rem;height:300px">
+            <img src="/static/images/portfolio/lawn-2.jpg" 
+                 alt="Lawn Transformation Before and After" 
+                 style="width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease"
+                 width="400" 
+                 height="300"
+                 loading="lazy">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);display:flex;align-items:end;padding:1rem">
+              <p style="color:white;font-weight:bold;font-size:1.125rem">Complete Lawn Transformation</p>
             </div>
           </div>
-          
-          <div class="relative group overflow-hidden rounded-lg scroll-animate">
-            <img src="/static/images/portfolio/landscape-2.jpg" alt="Landscaping Transformation 2017-2019" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-              <p class="text-white font-bold">Garden Design & Installation</p>
+
+          <div style="position:relative;overflow:hidden;border-radius:0.5rem;height:300px">
+            <img src="/static/images/portfolio/landscape-2.jpg" 
+                 alt="Landscaping Transformation 2017-2019" 
+                 style="width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease"
+                 width="400" 
+                 height="300"
+                 loading="lazy">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);display:flex;align-items:end;padding:1rem">
+              <p style="color:white;font-weight:bold;font-size:1.125rem">Garden Design & Installation</p>
             </div>
           </div>
-          
-          <div class="relative group overflow-hidden rounded-lg scroll-animate">
-            <img src="/static/images/portfolio/hardscape-2.jpg" alt="Backyard Patio Transformation" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-              <p class="text-white font-bold">Complete Backyard Makeover</p>
+
+          <div style="position:relative;overflow:hidden;border-radius:0.5rem;height:300px">
+            <img src="/static/images/portfolio/hardscape-2.jpg" 
+                 alt="Backyard Patio Transformation" 
+                 style="width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease"
+                 width="400" 
+                 height="300"
+                 loading="lazy">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);display:flex;align-items:end;padding:1rem">
+              <p style="color:white;font-weight:bold;font-size:1.125rem">Complete Backyard Makeover</p>
             </div>
           </div>
         </div>
-        
-        <div class="text-center mt-12">
-          <a href="/portfolio" class="bg-lime-green text-dark-gray px-8 py-3 rounded-full text-lg font-bold hover:bg-green-400 transition-all inline-block">
-            View Full Portfolio <i class="fas fa-arrow-right ml-2"></i>
+
+        <div style="text-align:center;margin-top:3rem">
+          <a href="/portfolio" style="background:#7CFC00;color:#1a1a1a;padding:0.75rem 2rem;border-radius:9999px;font-size:1.125rem;font-weight:bold;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s ease">
+            View Full Portfolio <i class="fas fa-arrow-right"></i>
           </a>
         </div>
       </div>
     </section>
-    
+
     <!-- CTA Section -->
-    <section class="py-20 bg-lime-green" id="quote-form">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-5xl md:text-6xl font-bebas text-dark-gray mb-6">
+    <section class="section-py bg-lime">
+      <div class="container" style="text-align:center">
+        <h2 style="font-size:3rem;color:#1a1a1a;margin-bottom:1.5rem;font-family:'Bebas Neue',cursive">
           Ready to Transform Your Lawn?
         </h2>
-        <p class="text-xl text-dark-gray/80 mb-8">
+        <p style="font-size:1.25rem;color:rgba(26,26,26,0.8);margin-bottom:2rem">
           Get your free estimate today! Call now or request a quote online.
         </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="tel:225-369-4434" class="bg-dark-gray text-lime-green px-8 py-4 rounded-full text-xl font-bold hover:bg-black transition-all transform hover:scale-105">
-            <i class="fas fa-phone mr-2"></i>Call 225-369-4434
+
+        <div style="display:flex;flex-direction:column;gap:1rem;justify-content:center;align-items:center;max-width:600px;margin:0 auto">
+          <a href="tel:225-369-4434" style="background:#1a1a1a;color:#7CFC00;padding:1rem 2rem;border-radius:9999px;font-size:1.25rem;font-weight:bold;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s ease;min-width:280px;justify-content:center">
+            <i class="fas fa-phone"></i>Call 225-369-4434
           </a>
-          <a href="https://forms.gle/Mut7H9YsjZDf6jUn6" target="_blank" class="bg-white text-dark-gray px-8 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-all transform hover:scale-105">
-            <i class="fas fa-envelope mr-2"></i>Request Online Quote
+          <a href="https://forms.gle/Mut7H9YsjZDf6jUn6" target="_blank" style="background:white;color:#1a1a1a;padding:1rem 2rem;border-radius:9999px;font-size:1.25rem;font-weight:bold;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s ease;min-width:280px;justify-content:center">
+            <i class="fas fa-envelope"></i>Request Online Quote
           </a>
         </div>
       </div>
     </section>
   `
-  
+
   return c.html(Layout({
     title: 'Southern Buck Lawn | Professional Lawn Care & Landscaping in Walker, LA',
     description: 'Southern Buck Lawn offers professional lawn care and landscaping services in Walker, LA and surrounding areas. Licensed, insured, and owner-operated. Call 225-369-4434 for a free estimate.',
@@ -271,12 +247,12 @@ function getServicesHTML() {
     { icon: 'fa-drafting-compass', name: 'Landscape Design', desc: '3D planning and design' },
     { icon: 'fa-chess-board', name: 'Hardscapes/Pavers', desc: 'Patios and walkways' }
   ]
-  
+
   return services.map(service => `
-    <div class="bg-dark-gray p-6 rounded-lg hover:bg-black transition-colors scroll-animate group">
-      <i class="fas ${service.icon} text-3xl text-lime-green mb-4 group-hover:scale-110 transition-transform"></i>
-      <h3 class="text-xl font-bebas mb-2">${service.name}</h3>
-      <p class="text-gray-400 text-sm">${service.desc}</p>
+    <div style="background:#2a2a2a;padding:1.5rem;border-radius:0.5rem;transition:all 0.3s ease;text-align:center">
+      <i class="fas ${service.icon}" style="font-size:2.5rem;color:#7CFC00;margin-bottom:1rem;display:block"></i>
+      <h3 style="font-size:1.25rem;margin-bottom:0.5rem;font-family:'Bebas Neue',cursive">${service.name}</h3>
+      <p style="color:#9CA3AF;font-size:0.875rem">${service.desc}</p>
     </div>
   `).join('')
 }
