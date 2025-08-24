@@ -1,20 +1,32 @@
 {
-  "name": "webapp",
+  "name": "southern-buck-lawn-care",
+  "version": "1.0.0",
+  "description": "Premium lawn care and landscaping services website",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "wrangler pages dev",
-    "deploy": "npm run build && wrangler pages deploy",
+    "preview": "wrangler pages dev dist",
+    "deploy": "npm run build && wrangler pages deploy dist",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
-    "hono": "^4.9.4"
+    "hono": "^4.9.4",
+    "pm2": "^6.0.8"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241127.0",
     "@hono/vite-build": "^1.2.0",
     "@hono/vite-dev-server": "^0.18.2",
     "vite": "^6.3.5",
     "wrangler": "^4.4.0"
-  }
+  },
+  "keywords": [
+    "lawn-care",
+    "landscaping",
+    "professional-services",
+    "southern-buck"
+  ],
+  "author": "Southern Buck Lawn Care",
+  "license": "MIT"
 }
