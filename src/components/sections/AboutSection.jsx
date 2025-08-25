@@ -80,11 +80,11 @@ const AboutSection = () => {
           >
             {/* Main Image */}
             <div className="relative">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl max-w-md mx-auto">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl max-w-xs mx-auto">
                 <img
                   src="/assets/images/shane_dantone_headshot.jpg"
                   alt="Shane Dantone - Owner of Southern Buck Lawn Care"
-                  className="w-full h-[400px] object-cover object-center"
+                  className="w-full h-[250px] object-cover object-center"
                 />
                 
                 {/* Overlay with quote */}
@@ -101,9 +101,9 @@ const AboutSection = () => {
               </div>
 
               {/* Floating Stats Card */}
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4 border border-border-color max-w-[120px]">
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl p-3 border border-border-color max-w-[100px]">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-orange mb-1">13+</div>
+                  <div className="text-xl font-bold text-primary-orange mb-1">13+</div>
                   <div className="text-xs text-text-light">Years in Trade</div>
                 </div>
               </div>

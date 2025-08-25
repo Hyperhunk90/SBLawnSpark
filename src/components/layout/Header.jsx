@@ -69,14 +69,14 @@ const Header = () => {
               src="/assets/images/Southern_Buck_Logo.png" 
               alt="Southern Buck Lawn Care Logo" 
               className={`transition-all duration-300 ${
-                isScrolled ? 'h-12' : 'h-16'
+                isScrolled ? 'h-8' : 'h-10'
               }`}
             />
             <div className="flex flex-column">
-              <h1 className="text-2xl font-bold text-white mb-0">
+              <h1 className="text-xl font-bold text-white mb-0">
                 Southern Buck Lawn
               </h1>
-              <p className="text-sm text-accent-gold mb-0">
+              <p className="text-xs text-accent-gold mb-0">
                 Professional Lawn Care Services
               </p>
             </div>
