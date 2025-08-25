@@ -1,16 +1,15 @@
 module.exports = {
-  apps: [
-    {
-      name: 'southern-buck-lawn',
-      script: 'npx',
-      args: 'wrangler pages dev dist --ip 0.0.0.0 --port 3000',
-      env: {
-        NODE_ENV: 'development',
-        PORT: 3000
-      },
-      watch: false,
-      instances: 1,
-      exec_mode: 'fork'
+  apps: [{
+    name: 'southern-buck-lawn-preview',
+    script: 'npx',
+    args: 'vite preview --host 0.0.0.0 --port 3000',
+    cwd: '/home/user/webapp',
+    instances: 1,
+    autorestart: true,
+    watch: false,
+    max_memory_restart: '1G',
+    env: {
+      NODE_ENV: 'production'
     }
-  ]
+  }]
 }
